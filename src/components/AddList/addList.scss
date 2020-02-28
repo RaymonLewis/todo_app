@@ -1,0 +1,44 @@
+.add-list{
+
+  &__popup {
+    position: relative;
+    width: 235px;
+    height: 150px;
+    padding: 18px;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .button {
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      svg { 
+        path {
+          fill: darken($color: #5E5E5E, $amount: 10%);
+        }
+      }
+    }
+  }
+}

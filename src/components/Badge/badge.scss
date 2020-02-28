@@ -1,0 +1,70 @@
+/*  
+  Badge style with modifiers. 
+*/
+
+.badge {
+  display: block;
+  border: none;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  //Active state modifier
+
+  &.badge--active {
+    border: 2px solid #525252;
+  }
+
+  // Margin modifier
+
+  &.badge--margin-removed {
+    margin-right: 0px;
+  }
+
+  //Color modifiers
+
+  &.badge--color-green {
+    background-color:#42B883;
+  }
+  
+  &.badge--color-blue {
+    background-color:#64C4ED;
+  }
+
+  &.badge--color-pink {
+    background-color: #FFBBCC;
+  }
+
+  &.badge--color-grey {
+    background-color: #C9D1D3;
+  }
+
+  &.badge--color-lime {
+    background-color: #B6E6BD;
+  }
+
+  &.badge--color-purple {
+    background-color: #C355F5;
+  }
+
+  &.badge--color-black {
+    background-color: #110133;
+  }
+
+  &.badge--color-red {
+    background-color: #FF6464;
+  }
+
+  // Size modifier
+
+  &.badge--size-big {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
