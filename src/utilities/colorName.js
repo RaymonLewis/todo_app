@@ -1,3 +1,5 @@
+// Convert the colorID from data source to the color name to be used on badge component
+
 export default function colorName(colorID) {
   let colorName = '';
   switch (colorID) {

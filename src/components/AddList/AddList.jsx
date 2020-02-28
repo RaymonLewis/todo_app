@@ -4,7 +4,7 @@ import Popup from '../Popup/Popup';
 
 import './addList.scss';
 
-const AddList = ({colors}) => {
+const AddList = ({colors,addList}) => {
   const [visiblePopup, setVisiblePopup] = useState(false);
 
   const hidePopup = () => {
@@ -26,7 +26,7 @@ const AddList = ({colors}) => {
           }
         ]}
       />
-      {visiblePopup && <Popup colors={colors} hidePopup={hidePopup} /> }
+      {visiblePopup && <Popup colors={colors} hidePopup={hidePopup} addList={addList}/> }
     </div>
   );
 }

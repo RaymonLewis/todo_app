@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import List from './components/List/List';
 import AddList from './components/AddList/AddList';
 import {colors, lists} from './assets/db.json';
 
 function App() {
+  const [allLists, setAllLists] = useState(lists);
+
+  function addList(listName){
+    const newList = {
+      id: Math.random + 'newID',
+      name: listName,
+      colorID: 3
+    };
+    let oldLists = [...allLists];
+    oldLists.push(newList);
+    setAllLists(oldLists);
+    console.log('list was added');
+    console.log(allLists);
+  }
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -18,8 +32,8 @@ function App() {
               isActive: true
             }
           ]}/>
-        <List items= {lists} marginRemoved/>
-        <AddList colors={colors}/>
+        <List items= {allLists} marginRemoved/>
+        <AddList colors={colors} addList={addList}/>
       </div>
       <div className="todo__tasks">
       </div>
