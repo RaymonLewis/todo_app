@@ -1,7 +1,7 @@
 import React from 'react';
 import List from './components/List/List';
 import AddList from './components/AddList/AddList';
-import {colors} from './assets/db.json';
+import {colors, lists} from './assets/db.json';
 
 function App() {
   return (
@@ -18,22 +18,7 @@ function App() {
               isActive: true
             }
           ]}/>
-        <List items = {
-          [
-            {
-              color: 'green',
-              name: 'Purchases'
-            },
-            {
-              color: 'blue',
-              name: 'Frontend'
-            },
-            {
-              color: 'pink',
-              name: 'Films'
-            }
-          ]} isRemovable
-        />
+        <List items= {lists} marginRemoved/>
         <AddList colors={colors}/>
       </div>
       <div className="todo__tasks">
