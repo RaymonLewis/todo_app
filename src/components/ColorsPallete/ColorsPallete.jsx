@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Badje from '../Badge/Badje';
 
 import './ColorsPallete.scss';
 
-export default function ColorsPallete({ colors }) {
-  const [listColor, setListColor] = useState(colors[0].id);
+export default function ColorsPallete({ colors,listColorID, sendColorToPopup}) {
+  
+
+  function handleClick(id){
+    sendColorToPopup(id);
+  }
 
   const colorsPallete = colors.map((color) => {
     const {hex,id} = color;
     return(
-      <li key={`${hex}`} onClick={() => setListColor(id)}>
+      <li key={`${hex}`} onClick={() => handleClick(id)}>
         <Badje 
         colorID={id} 
         size= 'big' 
-        isActive= {listColor === id ? true : false} />
+        isActive= {listColorID === id ? true : false} />
       </li>
     );
   }); 

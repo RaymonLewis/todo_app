@@ -6,17 +6,16 @@ import {colors, lists} from './assets/db.json';
 function App() {
   const [allLists, setAllLists] = useState(lists);
 
-  function addList(listName){
+  function addList(listName,colorID){
     const newList = {
-      id: Math.random + 'newID',
+      id: Math.random() + 'newID',
       name: listName,
-      colorID: 3
+      colorId: colorID
     };
     let oldLists = [...allLists];
     oldLists.push(newList);
     setAllLists(oldLists);
-    console.log('list was added');
-    console.log(allLists);
+    console.log(newList);
   }
   return (
     <div className="todo">
