@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import List from './components/List/List';
 import AddList from './components/AddList/AddList';
+import SidebarButton from './components/SidebarButton/SidebarButton';
 import {colors, lists} from './assets/db.json';
 
 function App() {
   const [allLists, setAllLists] = useState(lists);
+  const [listsHidden, setListsHidden] = useState('false');
 
+  //Update state with a new item coming from the popup
   function addList(listName,colorID){
     const newList = {
-      id: Math.random() + 'newID',
+      id: allLists.length,
       name: listName,
       colorId: colorID
     };
-    let oldLists = [...allLists];
-    oldLists.push(newList);
-    setAllLists(oldLists);
-    console.log(newList);
+    setAllLists([...allLists, newList]);
   }
   return (
     <div className="todo">
