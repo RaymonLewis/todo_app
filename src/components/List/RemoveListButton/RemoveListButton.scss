@@ -1,0 +1,21 @@
+.remove-list-btn {
+  position: absolute;
+  right: 12px;
+  background-color: transparent;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s linear;
+
+  &__icon path { 
+    transition: fill 0.3s linear;
+    fill: #bdb1b1;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    path {
+      fill: #1b1818;
+    }
+  }
+}

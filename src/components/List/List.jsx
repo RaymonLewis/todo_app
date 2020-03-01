@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import classNames from 'classnames';
 import Badge from '../Badge/Badje';
-
+import RemoveListButton from './RemoveListButton/RemoveListButton';
 
 import "./list.scss";
-import { act } from 'react-dom/test-utils';
 
-const List = ({ items, onClick, marginRemoved }) => {
+const List = ({ items, onClick, marginRemoved, onRemoveList }) => {
   const [active, setActive] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
 
@@ -19,8 +18,11 @@ const List = ({ items, onClick, marginRemoved }) => {
         <li key = {i} 
         className={active && selectedList === i ? 'active' : ''}
         onClick={() => selectList(i)}>
-          <i>{icon ? icon : <Badge colorID={colorId} />}</i>
+          <i className="list_icon">{icon ? icon : <Badge colorID={colorId} />}</i>
           <span>{name}</span>
+          {active && selectedList === i &&
+            <RemoveListButton listName={name} removeList={onRemoveList}/>
+          }
         </li> 
   );
 

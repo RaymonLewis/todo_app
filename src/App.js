@@ -16,6 +16,12 @@ function App() {
     setAllLists([...allLists,newList]);
   };
 
+  const onRemoveList = (listName) => {
+    //Create a new array by filtering removing the selected name
+    const updatedArray = allLists.filter(list => list.name !== listName);
+    setAllLists(updatedArray);
+  };
+
   return (
     <div className="todo">
       <div className="todo__sidebar">
@@ -28,8 +34,10 @@ function App() {
               </svg>,
               name: 'All tasks'
             }
-          ]}/>
-        <List items= {allLists} marginRemoved />
+          ]}
+          marginRemoved 
+          />
+        <List items= {allLists} marginRemoved onRemoveList={onRemoveList}/>
         <AddList colors={colors} addList={onAddList}/>
       </div>
       <div className="todo__tasks">

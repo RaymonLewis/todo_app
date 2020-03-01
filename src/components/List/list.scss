@@ -14,9 +14,10 @@
   }
 
   li {
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 4px 12px;
+    padding: 6px 12px;
     cursor: pointer;
 
     &.active {
@@ -25,17 +26,17 @@
       border-radius: 4px;
     }
   }
+}
 
-  i {
-    display: inline-flex;
-    width: 20px;
-    height: auto;
-    margin-right: 8px;
-    justify-content: center;
-    svg {
-      path {
-        fill: #7C7C7C;
-      }
+.list_icon {
+  display: inline-flex;
+  width: 20px;
+  height: auto;
+  margin-right: 8px;
+  justify-content: center;
+  svg {
+    path {
+      fill: #7C7C7C;
     }
   }
 }
