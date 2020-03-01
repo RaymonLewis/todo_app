@@ -8,20 +8,36 @@ export default function Popup({ hidePopup, colors, addList }) {
   const [listName,setListName] = useState('');
   const [listColorID, setListColorID] = useState(colors[0].id);
 
-  function handleInput(listName) {
-    setListName(listName);
-  }
+  const closePopup = () => {
+    setListName('');
+    setListColorID(colors[0].id);
+    hidePopup();
+  };
 
-  function chooseColor(colorID){
+  const handleInput = (listName) => {
+    setListName(listName);
+  };
+
+  const chooseColor = (colorID) => {
     setListColorID(colorID);
-  }
+  };
+
+  const handleClick = () => {
+    if(!listName){
+      alert('Enter the list name');
+      return;
+    }
+    //adding list to data array
+    addList(listName,listColorID);
+    closePopup();
+  };
   
   return (
     <div className="add-list__popup">
       <TextInput handleInput={handleInput} listName={listName}/>
       <ClosePopupButton hidePopup={hidePopup} />
       <ColorsPallete colors={colors} listColorID={listColorID} sendColorToPopup={chooseColor}/>
-      <AddListButton listName={listName} colorID={listColorID} addList={addList} />
+      <AddListButton handleClick={handleClick} />
     </div>
   )
 }

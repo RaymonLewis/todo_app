@@ -3,9 +3,9 @@ import React from 'react'
 import './TextInput.scss';
 
 export default function TextInput({handleInput,listName}) {
-
-  function handleChange(e){
-    handleInput(e.target.value);
+  const handleChange = (e) => {
+    const value = e.target.value;
+    handleInput(value);
   }
 
   return (
