@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Switch, Route } from "react-router-dom";
 import List from './components/List/List';
 import AddList from './components/AddList/AddList';
+import Tasks from './components/Tasks/Tasks';
 import {colors, lists} from './assets/db.json';
 
 function App() {
@@ -17,9 +19,11 @@ function App() {
   };
 
   const onRemoveList = (listName) => {
-    //Create a new array by filtering removing the selected name
-    const updatedArray = allLists.filter(list => list.name !== listName);
-    setAllLists(updatedArray);
+    if(window.confirm('Are you really want to remove list?')){
+      //Create a new array by filtering removing the selected name
+      const updatedArray = allLists.filter(list => list.name !== listName);
+      setAllLists(updatedArray);
+    }
   };
 
   return (
@@ -40,9 +44,15 @@ function App() {
         <List items= {allLists} marginRemoved onRemoveList={onRemoveList}/>
         <AddList colors={colors} addList={onAddList}/>
       </div>
-      <div className="todo__tasks">
+      <div className="tasks">
+        <div className="tasks__inner">
+          <Switch>
+            <Route path="/tasks/:id" component={Tasks} />
+          </Switch>
+        </div>
       </div>
     </div>
+
   );
 }
 

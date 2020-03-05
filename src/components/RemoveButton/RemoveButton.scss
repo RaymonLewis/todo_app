@@ -1,14 +1,12 @@
 .remove-list-btn {
-  position: absolute;
-  right: 12px;
   background-color: transparent;
   overflow: hidden;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s linear;
+  transition: transform 0.3s ease-in-out;
 
   &__icon path { 
-    transition: fill 0.3s linear;
+    transition: fill 0.3s ease-in-out;
     fill: #bdb1b1;
   }
 

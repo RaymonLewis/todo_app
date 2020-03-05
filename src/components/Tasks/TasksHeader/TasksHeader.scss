@@ -1,0 +1,53 @@
+.tasks-header {
+
+  &__name {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 39px;
+    color: #64C4ED;
+
+    //Color modifiers. 
+
+    &--green {
+      color:#42B883;
+    }
+    
+    &--blue {
+      color:#64C4ED;
+    }
+
+    &--pink {
+      color: #FFBBCC;
+    }
+
+    &--grey {
+      color: #C9D1D3;
+    }
+
+    &--lime {
+      color: #B6E6BD;
+    }
+
+    &--purple {
+      color: #C355F5;
+    }
+
+    &--black {
+      color: #110133;
+    }
+
+    &--red {
+      color: #FF6464;
+    }
+  }
+
+  &__edit-icon {
+    cursor: pointer;
+    margin-left: 15px;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

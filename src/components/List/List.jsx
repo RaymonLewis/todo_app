@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 import classNames from 'classnames';
 import Badge from '../Badge/Badje';
-import RemoveListButton from './RemoveListButton/RemoveListButton';
+import RemoveButton from '../RemoveButton/RemoveButton';
 
 import "./list.scss";
-
+//The list item must be moved to its own component
 const List = ({ items, onClick, marginRemoved, onRemoveList }) => {
   const [active, setActive] = useState(false);
   const [selectedList, setSelectedList] = useState(null);
@@ -15,15 +16,21 @@ const List = ({ items, onClick, marginRemoved, onRemoveList }) => {
   }
   
   const listItem = items.map(({ icon, name, colorId }, i) => 
-        <li key = {i} 
-        className={active && selectedList === i ? 'active' : ''}
-        onClick={() => selectList(i)}>
-          <i className="list_icon">{icon ? icon : <Badge colorID={colorId} />}</i>
-          <span>{name}</span>
-          {active && selectedList === i &&
-            <RemoveListButton listName={name} removeList={onRemoveList}/>
-          }
-        </li> 
+        <Link to={`/tasks/${i}`}>
+          <li key = {i} 
+          className={active && selectedList === i ? 'active' : ''}
+          onClick={() => selectList(i)}
+          >
+            <i className="list_icon">{icon ? icon : <Badge colorID={colorId} />}</i>
+            <span className="listName">{name}</span>
+            {active && selectedList === i &&
+              <RemoveButton 
+              listName={name} 
+              removeList={onRemoveList}
+              parent='list'/>
+            }
+          </li> 
+        </Link>
   );
 
   const listClass = classNames({

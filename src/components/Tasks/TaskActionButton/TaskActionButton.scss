@@ -1,0 +1,31 @@
+.tasks-actions-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  button {
+    border-radius: 4px;
+    padding: 6px 25px;
+    
+    span {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 17px;
+      letter-spacing: 0.15px;
+    }
+  }
+
+  &__addTaskButton {
+    margin-right: 10px;
+    background-color: #4DD599;
+    color: #fff;
+  }
+
+  &__hideInputButton {
+    background-color: #F4F6F8;
+    color: #9C9C9C;
+  }
+
+}
