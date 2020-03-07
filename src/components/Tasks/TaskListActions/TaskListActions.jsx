@@ -17,7 +17,6 @@ export default function TaskListActions({ onAddTask }) {
 
   const handleInput = (text) => {
     setTaskDescription(text);
-    console.log(text);
   }
 
   return (

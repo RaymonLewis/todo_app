@@ -13,17 +13,20 @@
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid #E8E8E8;
+  transition: all 0.3s ease-in;
 
   &--completed{
     background-color: #4DD599;
   }
 }
 
-.tasks-list__description {
+.tasks-list__input {
+  padding: 0 10px;
   font-family: 'Lato', sans-serif;
   font-style: normal;
-  margin-left: 15px;
+  margin-left: 5px;
   flex-grow: 1;
   font-size: 15px;
   line-height: 19px;
+  border: none;
 }

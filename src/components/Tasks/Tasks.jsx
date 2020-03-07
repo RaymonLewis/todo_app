@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TasksHeader from './TasksHeader/TasksHeader';
 import TaskList from './TaskList/TaskList';
 import TaskListActions from './TaskListActions/TaskListActions';
@@ -8,6 +8,20 @@ import './Tasks.scss';
 
 export default function Tasks(props) {  
   const [taskList, setTaskList] = useState(tasks);
+  const [listName, setListName] = useState('');
+  const [colorName, setColorName] = useState('');
+
+  const listID = Number(props.match.params.id)+1;
+  
+
+  useEffect(() => {
+    const list = lists.filter(list => list.id === listID);
+    setListName(list[0].name);
+    
+    const colorID = list[0].colorId;
+    const colorArray = colors.filter(color => color.id === colorID);
+    setColorName(colorArray[0].name);
+  },[listID]);
 
   const onTaskRemove = (taskID) => {
     if(window.confirm('Do you want to remove the task?')) {
@@ -25,22 +39,12 @@ export default function Tasks(props) {
       "id": '112102'
     };
 
-    let newTaskList = [...taskList];
-    newTaskList.push(newTask);
+    const newTaskList = [...taskList, newTask]
     setTaskList(newTaskList);
-    
-    console.log('Task was added', newTask);
   }
   
   // Need to move it in a separate service
-  //Looking for the listName and color Name to provide the data below for child components
-  const listID = Number(props.match.params.id)+1;
-  const list = lists.filter(list => list.id === listID);
-  const listName = list[0].name;
-
-  const colorID = list[0].colorId;
-  const colorArray = colors.filter(color => color.id === colorID);
-  const colorName = colorArray[0].name;
+  //Looking for the listName and color Name to provide the data below for child component
   
   // Retrieve tasks belong to the selected list and display each of them
   const taskArray = taskList.filter(task => task.listId === listID);

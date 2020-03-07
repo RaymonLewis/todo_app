@@ -13,7 +13,8 @@ function App() {
       id: lists.length,
       name: listName,
       colorId: colorID
-    };
+    }
+    console.log(newList);
     //Update the state by inserting the old state plus new list object
     setAllLists([...allLists,newList]);
   };
